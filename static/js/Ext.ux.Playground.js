@@ -19,7 +19,7 @@ Ext.override(Ext.Component, {
 */
 Ext.ns('Ext.ux');
 
-Ext.ux.TestCases = Ext.extend(Ext.Panel, {
+Ext.ux.Playground = Ext.extend(Ext.Panel, {
 
   initComponent:function() {
 
@@ -28,8 +28,10 @@ Ext.ux.TestCases = Ext.extend(Ext.Panel, {
       ,border:false
       ,items:[{
 	region:"center"
-	,title:"center"
-	,ref:"center"
+	,title:"Playground"
+	,ref:"playground"
+	,autoScroll:true
+	,bodyCssClass:"x-panel-playground"
       }, {
 	region:"west"
 	,title:"west"
@@ -51,7 +53,8 @@ Ext.ux.TestCases = Ext.extend(Ext.Panel, {
 	,buttons:[{
 	  text:"clear"
 	  ,scope:this
-	  ,handler:this.clearCenter
+	  ,handler:this.clear
+	  ,tooltip:"CTRL + SHIFT + ENTER"
 	}, {
 	  text:"run"
 	  ,scope:this
@@ -61,7 +64,7 @@ Ext.ux.TestCases = Ext.extend(Ext.Panel, {
       }]
     });
 
-    Ext.ux.TestCases.superclass.initComponent.call(this);
+    Ext.ux.Playground.superclass.initComponent.call(this);
 
   }
 
@@ -69,8 +72,16 @@ Ext.ux.TestCases = Ext.extend(Ext.Panel, {
     new Ext.KeyMap(textarea.el, [{
       key:[10, 13]
       ,ctrl:true
+      ,shift:false
       ,scope:this
       ,fn:this.run
+    }]);
+    new Ext.KeyMap(textarea.el, [{
+      key:[10, 13]
+      ,ctrl:true
+      ,shift:true
+      ,scope:this
+      ,fn:this.clear
     }]);
   }
 
@@ -89,15 +100,15 @@ Ext.ux.TestCases = Ext.extend(Ext.Panel, {
 
   ,run:function() {
     var code = this.textarea.getValue();
-    code = "(function() {"+code+"}).call(this.center)";
+    code = "(function() {"+code+"}).call(this.playground)";
     eval(code);
   }
 
-  ,clearCenter:function() {
-    this.center.update("");
-    this.center.doLayout();
+  ,clear:function() {
+    this.playground.update("");
+    this.playground.doLayout();
   }
 
 });
 
-Ext.reg('testcases', Ext.ux.TestCases);
+Ext.reg('testcases', Ext.ux.Playground);
