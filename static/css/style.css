@@ -1,3 +1,13 @@
+/*
+** style.css for Ext.ux.Playground
+** 
+** Made by Gary van Woerkens
+** Contact <gary@chewam.com>
+** 
+** Started on  Fri Feb 19 15:30:01 2010 Gary van Woerkens
+** Last update Fri Feb 19 15:30:13 2010 Gary van Woerkens
+*/
+
 .x-panel-playground {
   background:transparent url(../img/background.png) repeat scroll 0 0;
   padding:10px;

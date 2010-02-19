@@ -1,22 +1,13 @@
 /*
-Ext.override(Ext.Component, {
-  initState : function(){
-    if(Ext.state.Manager){
-      var id = this.getStateId();
-      if(id){
-	var state = Ext.state.Manager.get(id);
-	console.log("STATE: ", state);
-	if(state){
-	  if(this.fireEvent('beforestaterestore', this, state) !== false){
-	    this.applyState(Ext.apply({}, state));
-	    this.fireEvent('staterestore', this, state);
-	  }
-	}
-      }
-    }
-  }
-});
+** Ext.ux.Playground.js for Ext.ux.Playground
+**
+** Made by Gary van Woerkens
+** Contact <gary@chewam.com>
+**
+** Started on  Fri Feb 19 15:28:18 2010 Gary van Woerkens
+** Last update Fri Feb 19 15:28:56 2010 Gary van Woerkens
 */
+
 Ext.ns('Ext.ux');
 
 Ext.ux.Playground = Ext.extend(Ext.Panel, {
