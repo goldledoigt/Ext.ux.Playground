@@ -5,7 +5,7 @@
 ** Contact <gary@chewam.com>
 **
 ** Started on  Fri Feb 19 15:28:18 2010 Gary van Woerkens
-** Last update Fri Feb 19 15:28:56 2010 Gary van Woerkens
+** Last update Fri Feb 19 15:33:05 2010 Gary van Woerkens
 */
 
 Ext.ns('Ext.ux');
@@ -102,4 +102,4 @@ Ext.ux.Playground = Ext.extend(Ext.Panel, {
 
 });
 
-Ext.reg('testcases', Ext.ux.Playground);
+Ext.reg('playground', Ext.ux.Playground);
